@@ -129,22 +129,33 @@ struct A
 {
     void a_method()
     {
-        cout << "Thats A struct method!";
+        cout << "Called method from A struct!";
     }
 };
 
 class
     B
 {
-
+public:
+    void b_method()
+    {
+        cout << "Called method from B class!";
+    }
 };
 
-namespace C {}
+namespace C
+{
+    void c_method()
+    {
+        cout << "Called method from C namespace!" << endl;
+    }
+}
 
 
 int main(void)
 {
     string fileContent = copyFileInHeap(__FILE__);
+
     cout << "Detected structeres: " << getStructsNames(fileContent) << endl;
     cout << "Detected classes: " << getClassesNames(fileContent) << endl;
     cout << "Detected namespaces: " << getNamespaces(fileContent) << endl;
